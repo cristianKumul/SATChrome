@@ -1,13 +1,18 @@
 
 {
    "manifest_version": 2,
-    "name": "My Extension 2",
+    "name": "SAT MASIVO XML",
     "version": "0.1.0",
-    "description": "__MSG_extensionDescription__",
+    "description": "Permite descargar las facturas XML desde el portal del SAT",
     "author": "cristian.kumul@gmail.com",
     "browser_action": {
-        "default_title": "Use this to open the popup",
-        "default_popup": "popup/popup.html"
+        "default_title": "Abrir SAT Masivo",
+        "default_popup": "popup/popup.html",
+         "default_icon": {                    // optional
+            "16": "images/icon16.png",           // optional
+            "24": "images/icon24.png",           // optional
+            "32": "images/icon32.png"            // optional
+          }
     },
     "background": {
         "scripts": [ "background.js" ],
