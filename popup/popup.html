@@ -2,12 +2,28 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <title></title>
-    <link rel="stylesheet" href="popup.css" />
+    <!--link rel="stylesheet" href="popup.css" /-->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
 </head>
 <body>
-    <h1>SATMASIVO</h1>
-    <label for="button">Se encontraron facturas XML:</label>
-    <button id="button">Descargar</button>
+    <h1>SAT MASIVO</h1>  
+    
+    
+    <button id="other" class="btn btn-primary notify">Buscar Facturas XML</button>
+    <button id="backbtn" class="btn btn-info" style="display: none" >No se encontraron Facturas</button>
+    <div id="toDownload" class="card notify" style="display: none">
+        <div class="card-block " >
+            <p class="card-title">Se encontraron <h3 id="toDownloadNumber">0</h3>facturas</p>
+        </div>
+        <button id="button" class="btn btn-success" >Descargar</button>
+    </div>
+    <div id="invoiceDownloaded" class="card notify" style="display: none">
+        <div class="card-block " >
+            <h4 class="card-title">Se descargaron <h3 id="invoicedNumber">0</h3>facturas</h4>
+            <button id="backbtn2" class="btn btn-info" >Regresar</button>
+        </div>
+    </div>
+    <script src="assets/js/zepto.min.js"></script>
     <script src="popup.js"></script>
 </body>
 </html>

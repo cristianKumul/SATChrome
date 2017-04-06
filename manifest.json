@@ -13,12 +13,13 @@
         "scripts": [ "background.js" ],
         "persistent": false
     },
-    "permissions": [ "tabs","downloads","*://*/*"],
+    "permissions": [ "tabs","downloads","contentSettings","*://*/*"],
     "content_scripts": [
         {
             "matches": [ "*://*/*","*://portalcfdi.facturaelectronica.sat.gob.mx/ConsultaReceptor.aspx","*://portalcfdi.facturaelectronica.sat.gob.mx/ConsultaEmisor.aspx" ],
             "js": [ "program/action.js" ]
             //"css": [ "content.css" ]
         }
-    ]
+    ],
+     "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'"
 }
