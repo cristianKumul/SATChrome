@@ -1,27 +1,22 @@
 (function () {
     'use strict';
-    var foo = function(){
 
-    console.log("click to button");
-    try {
-        var imgQuery = document.querySelector("#ctl00_MainContent_tblResult");
-        var downloadBtn = imgQuery.getElementsByClassName("BtnDescarga");
-        if(downloadBtn != undefined){
-            console.log(downloadBtn);
-        }
-    } catch (error) {
-        console.log("Error while try to handleButtonClick",error.message);
-    }
-  
-    }
+
     var backgroundpage = chrome.extension.getBackgroundPage();
+    var messenger = function(message){
 
+        chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+        chrome.tabs.sendMessage(tabs[0].id, {action: message}, function(response) {
+            console.log(response.result);
+            });
+        });
+
+    }
     document.querySelector('button').addEventListener('click', function () {
         console.log("click desde afyera");
-        foo();
-        //backgroundpage.handleButtonClick();
+       messenger("findXML");
     });
-
-
+    
+  
     
 }());

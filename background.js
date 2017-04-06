@@ -1,4 +1,3 @@
-var info="none";
 function handleButtonClick() {
     console.log("click to button");
     try {
