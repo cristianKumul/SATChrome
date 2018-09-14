@@ -2,6 +2,7 @@
 (function () {
     'use strict';
     var downloadFile = function(uri){
+        console.log(uri);
         var link = document.createElement("a");
         link.download = "name.xml";
         link.href = uri;
@@ -11,7 +12,7 @@
         
     }
     var parseUrl =  function(actionUrl){
-        let link =  actionUrl.replace("return AccionCfdi('","").replace("','Recuperacion');","");
+        let link =  actionUrl.replace("recuperaRepresentacionImpresa('","").replace("');","");
         return link;
     }
     var getXMLNumbers = function(){
@@ -29,12 +30,13 @@
         console.log("click to button");
         try {
             var imgQuery = document.querySelector("#ctl00_MainContent_tblResult");
-            var downloadBtn = imgQuery.getElementsByClassName("BtnDescarga");
+            var downloadBtn = document.getElementsByName('BtnRI'); //imgQuery.getElementsByClassName("BtnDescarga");
             var listUrl = [];
-            var baseUrl = "https://"+ window.location.hostname+"/";
+            var baseUrl = "https://"+ window.location.hostname+"/RepresentacionImpresa.aspx?Datos=";
             if(downloadBtn != undefined){
                 for(let i = 0 ; i < downloadBtn.length ; i++){
-                    let link = baseUrl+parseUrl(downloadBtn[i].attributes[6].value) ;
+                    let urlugly = downloadBtn[i].getAttribute('onclick');
+                    let link = baseUrl+parseUrl(urlugly);
                     downloadFile(link);
                     listUrl.push(link);
                  }            
